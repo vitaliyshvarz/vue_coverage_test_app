@@ -5,27 +5,31 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "test": "jest"
+    "test:unit": "vue-cli-service test:unit",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "@vue/cli-plugin-unit-jest": "^4.5.11",
-    "@vue/test-utils": "^1.1.2",
+    "@vue/cli-plugin-unit-jest": "~4.5.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.5",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+    "@vue/test-utils": "^1.1.2",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-istanbul": "^6.0.0",
+    "core-js": "^2.6.5",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
-    "vue-template-compiler": "^2.6.11",
-    "@babel/core": "^7.4.5",
-    "core-js": "^2.6.5"
+    "istanbul-instrumenter-loader": "^3.0.1",
+    "jest-coverage-guard": "^2.2.7",
+    "nyc": "^15.1.0",
+    "vue-template-compiler": "^2.6.11"
   },
   "eslintConfig": {
     "root": true,
@@ -39,15 +43,31 @@
     "parserOptions": {
       "parser": "babel-eslint"
     },
-    "rules": {}
-  },
-  "jest": {
-    "collectCoverage": true,
-    "collectCoverageFrom": ["**/*.{js,vue}", "!**/node_modules/**"]
+    "rules": {},
+    "overrides": [
+      {
+        "files": [
+          "**/__tests__/*.{j,t}s?(x)",
+          "**/tests/unit/**/*.spec.{j,t}s?(x)"
+        ],
+        "env": {
+          "jest": true
+        }
+      }
+    ]
   },
   "browserslist": [
     "> 1%",
     "last 2 versions",
     "not dead"
-  ]
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,vue}",
+      "!**/node_modules/**"
+    ],
+    "reporters": ["default", "jest-coverage-guard"],
+    "preset": "@vue/cli-plugin-unit-jest"
+  }
 }

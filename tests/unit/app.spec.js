@@ -1,5 +1,5 @@
 import {  shallowMount } from '@vue/test-utils'
-import App from '../App.vue'
+import App from '../../src/App.vue'
 
 describe('App', () => {
   it('has data', () => {
@@ -11,6 +11,6 @@ describe('Mounted App', () => {
   const wrapper = shallowMount(App);
 
   test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBeTruthy()
+    expect(wrapper.vm).toBeTruthy()
   })
 })

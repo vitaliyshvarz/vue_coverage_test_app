@@ -13,6 +13,7 @@
 </template>
 
 <script>
+// skip-coverage-check
 import { mapActions } from 'vuex';
 export default {
   name: 'FilterTodos',
