@@ -21,5 +21,5 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install Dependencies
       run: npm install
-    - name: Coverage check webshop
+    - name: Coverage check
       run: npm run test:unit
