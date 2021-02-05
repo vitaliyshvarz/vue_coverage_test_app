@@ -34,7 +34,6 @@ export default {
 <style scoped>
   form {
     display: flex;
-    text-align: center;
   }
   input[type="text"] {
     flex: 10;
