@@ -8,7 +8,7 @@
     "body": "APP-[0-9]+",
     "flags": "g"
   },
-  "excludeFiles": [ "-test.js", "test.ts", ".css"],
+  "excludeFiles": [ "-test.js", "test.ts", ".css", ".yml"],
   "addedFilesQualityGate": {
     "statements": 100,
     "branches": 100,
