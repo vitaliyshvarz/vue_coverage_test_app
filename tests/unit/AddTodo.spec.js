@@ -38,9 +38,7 @@ describe('AddTodo.vue', () => {
   it('calls addTodo on onSubmit', () => {
     const wrapper = shallowMount(AddTodo, { store, localVue })
     const form = wrapper.find('form');
-
     form.trigger('submit');
-
     expect(actions.addTodo).toHaveBeenCalled()
   })
 })
